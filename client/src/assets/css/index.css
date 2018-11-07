@@ -70,6 +70,15 @@ float: left;
   margin:  15px 0 15px 15px;
   background-color: aquamarine;
 }
+.remove-btn {
+  border: 0;
+  float: right;
+  border-radius: 5px;;
+}
+.remove-btn:hover{
+  background-color: rgba(255, 2, 2, 0.445);
+  color: white;
+}
 
 .continer_paths{
   width: 100%;

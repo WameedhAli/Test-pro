@@ -41,8 +41,7 @@ class Modules extends Component {
   }  
 
   render() {
-    // const { modules } = this.state;
-    const filterItems = this.state.modules.filter((repo) => {
+    const filterModules = this.state.modules.filter((repo) => {
       const regex = new RegExp(this.state.searchString, 'g')
         return regex.test(repo.title)
       })
@@ -94,18 +93,17 @@ class Modules extends Component {
                 </button>
             </div>
             <div class="continer_paths">
-                {filterItems.map((module) => <div className="items_paths" key={module._id}>{module.title}
+                {filterModules.map((module) => 
+                  <div className="items_paths" key={module._id}>
+                  {module.title}
                 <button
                   className="remove-btn"
-                  color="danger"
-                  size="sm"
                   onClick={()=> {
                     this.setState(state => ({modules: state.modules.filter(mod => module._id !== mod._id)
                     }));
                   }}
-                >
-                
-                    &times;
+              >
+              &times;
                   </button>
                 </div>)}
             </div>
