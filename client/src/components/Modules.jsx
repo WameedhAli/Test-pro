@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { getModules , createModule} from '../api/modules';
+import { getModules , createModule,DeleteModule} from '../api/modules';
 
 class Modules extends Component {
   constructor() {
@@ -34,7 +34,18 @@ class Modules extends Component {
       });
     });
   };
-  
+  onDelete(module){
+    console.log(module)
+     state.modules.filter(mod => module._id !== mod._id)
+     console.log(mod)
+  }
+  // x=(e)=>{
+  //   DeleteModule(this.state.modules.filter((mod)=>{
+  //     return module._id !== mod._id
+  //   }))
+    
+  // }
+  // this.setState(state => ({modules: state.modules.filter(mod => module._id !== mod._id)
   searchItem = (e) => {
     const searchString = e.target.value
     this.setState({searchString : searchString})
@@ -98,10 +109,11 @@ class Modules extends Component {
                   {module.title}
                 <button
                   className="remove-btn"
-                  onClick={()=> {
-                    this.setState(state => ({modules: state.modules.filter(mod => module._id !== mod._id)
-                    }));
-                  }}
+                  onClick={this.onDelete.bind(this,module)}
+                  // onClick={()=> {
+                  //   this.setState(state => ({modules: state.modules.filter(mod => module._id !== mod._id)
+                  //   }));
+                  // }}
               >
               &times;
                   </button>
